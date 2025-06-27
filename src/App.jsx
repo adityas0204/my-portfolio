@@ -1,12 +1,11 @@
-import { firebaseApp } from "./firebase"
+import { Routes, Route } from "react-router"
+import Home from "./Home"
 
 const App = () => {
   return (
-    <div> 
-      <h1> 
-        My Portfolio
-      </h1>
-    </div>
+    <Routes> 
+      <Route path='/' element={<Home />} />
+    </Routes>
   )
 }
 
