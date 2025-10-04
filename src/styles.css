@@ -4,6 +4,7 @@
     --dark-green: #ADC178;
     --light-green: #DDE5B6;
     --cream: #F0EAD2;
+    --bone: #f0efeb;
 }
 
 html, body {
@@ -27,6 +28,58 @@ header {
     padding: 0 4%;
     height: 60px;
     background-color: var(--light-green);
+}
+
+footer {
+    padding: 36px 4%;
+    background-color: var(--cream);
+    font-weight: 900;
+    color: var(--dark-brown);
+}
+
+.footer-name {
+    font-family: "Caesar Dressing";
+    font-weight: bolder;
+    font-size: 72px;
+    margin-bottom: 36px;
+}
+
+.last {
+    color: var(--light-brown);
+    font-style: italic;
+}
+
+.footer-navs {
+    display: grid;
+    font-size: large;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+}
+
+.footer-navs p {
+    margin: 0;
+    font-style: italic;
+}
+
+.footer-navs a {
+    text-decoration: none;
+    color: var(--light-brown);
+}
+
+.footer-navs a:hover {
+    font-style: italic;
+    color: var(--dark-green);
+}
+
+.copyright {
+    color: var(--light-brown);
+    margin-top: 36px;
+    font-size: small;
 }
 
 .my-name {
@@ -149,6 +202,11 @@ main {
   color: var(--dark-green);
   font-weight: 900;
   font-size: large;
+}
+
+#projects-container h2 {
+    font-size: 72px;
+    
 }
 
 .timeline-line {
