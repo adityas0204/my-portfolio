@@ -50,14 +50,14 @@ footer {
 }
 
 .footer-navs {
-    display: grid;
+    display: flex;
     font-size: large;
+    gap: 5em;
 }
 
 .nav-container {
     display: flex;
     flex-direction: column;
-    align-items: start;
     gap: 8px;
 }
 

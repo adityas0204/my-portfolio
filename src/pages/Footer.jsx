@@ -12,6 +12,11 @@ const Footer = () => {
           <a href="#about-container">2. About</a>
           <a href="#projects-container">3. Projects</a>
         </div>
+        <div className="nav-container">
+          <p>Social</p>
+          <a href="https://www.linkedin.com/in/aditya-soni-91b9238a/" target="_blank">1. LinkedIn</a>
+          <a href="https://github.com/adityas0204" target="_blank">2. GitHub</a>
+        </div>
       </div>
       <div className="copyright">blah blah copy rght</div>
     </footer>
