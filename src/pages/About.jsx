@@ -2,7 +2,7 @@ import picture from '../assets/maheep_smiling.png'
 
 const About = () => {
   return (
-    <div id='about'>
+    <div id="about-container">
       <div id='img-content'>
         <img src={picture} width={400}/> 
         <div id='content'>

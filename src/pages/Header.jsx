@@ -6,10 +6,10 @@ const Header = () => {
           ADITYA SONI
         </div>
         <nav className="header-content"> 
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
+          <a href="#home-container">Home</a>
+          <a href="#about-container">About</a>
+          {/* <a href="#experience">Experience</a> */}
+          <a href="#projects-container">Projects</a>
         </nav>
         <div className="social-media-links">
           <a className="social-media-link-svg" href="https://www.linkedin.com/in/aditya-soni-91b9238a/" target="_blank">
