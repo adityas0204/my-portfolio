@@ -28,6 +28,52 @@ header {
     padding: 0 4%;
     height: 60px;
     background-color: var(--light-green);
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.header-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header-content {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.header-content a {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-brown);
+    text-decoration: none;
+}
+
+.header-content a:hover {
+    font-style: italic;
+    color: var(--light-brown);
+}
+
+.social-media-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-media-link-svg {
+    width: 34px;
+    height: 34px;
+    fill: var(--light-brown);
+}
+
+.social-media-link-svg:hover {
+    fill: var(--dark-brown)
 }
 
 footer {
@@ -88,65 +134,58 @@ footer {
     color: var(--dark-brown);
 }
 
-.header-content {
-    position: relative;
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-}
-
-.header-content a {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--dark-brown);
-    text-decoration: none;
-}
-
-.header-content a:hover {
-    font-style: italic;
-    color: var(--light-brown);
-}
-
-.social-media-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-media-link-svg {
-    width: 34px;
-    height: 34px;
-}
-
-main {
+/* main {
     margin-top: 60px;
-}
+} */
 
-#home-container {
-    height: calc(100vh - 60px);
+#home {
+    height: calc(100vh);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: var(--light-green);
 }
 
-#home-container .left,
-#home-container .right {    
-    margin: 0;
-    padding: 0;
-    font-size: calc(100vh / 2 - 45px);
+.home-menu-links-list {  
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;    
     font-family: "Caesar Dressing";
-    line-height: 1;
-    color: white;
+    font-size: 7rem;
+    text-transform: uppercase;
 }
 
-#home-container .left {
-    align-self: flex-start;
+.home-menu-links-title {
+    font-size: 8rem;
+    font-weight: 900;
 }
 
-#home-container .right {
-    align-self: flex-end;
+.home-menu-link-w {  
+    color: var(--light-brown);
+    text-decoration: none;
+    overflow: clip;
 }
 
-#about-container {
+.text-menu-link {  
+    text-shadow: 0 7rem;
+}
+
+.char {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home-menu-link-w:hover .char {
+    transform: translateY(-7.2rem);
+    color: var(--dark-brown);
+}
+
+/* .home-link-text {
+    color: var(--dark-brown);
+} */
+
+#about {
     height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
@@ -192,7 +231,7 @@ main {
     font-weight: bold;
 }
 
-#projects-container {
+#projects {
   min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
@@ -204,7 +243,7 @@ main {
   font-size: large;
 }
 
-#projects-container h2 {
+#projects h2 {
     font-size: 72px;
     
 }

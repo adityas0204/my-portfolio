@@ -1,8 +1,8 @@
-import picture from '../assets/maheep_smiling.png'
+import picture from '../assets/aditya_soni.png'
 
 const About = () => {
   return (
-    <div id="about-container">
+    <div id="about">
       <div id='img-content'>
         <img src={picture} width={400}/> 
         <div id='content'>

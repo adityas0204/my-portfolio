@@ -2,7 +2,7 @@ import ProjectInfo from "./ProjectInfo"
 
 const Projects = () => {
   return (
-    <section id="projects-container"> 
+    <section id="projects"> 
       <h2>Projects</h2>
       <div className="timeline">
         <div className="timeline-line"></div>        
