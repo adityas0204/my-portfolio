@@ -2,7 +2,7 @@ import picture from '../assets/aditya_soni.png'
 
 const About = () => {
   return (
-    <div id="about">
+    <div className='h-screen flex flex-col justify-center align-center bg-bone'>
       <div id='img-content'>
         <img src={picture} width={400}/> 
         <div id='content'>

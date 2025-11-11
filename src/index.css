@@ -109,24 +109,24 @@ header {
     font-style: italic;
 } */
 
-.footer-navs {
+/* .footer-navs {
     display: flex;
     font-size: large;
     gap: 5em;
-}
+} */
 
-.nav-container {
+/* .nav-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
+} */
 
-.footer-navs p {
+/* .footer-navs p {
     margin: 0;
     font-style: italic;
-}
+} */
 
-.footer-navs a {
+/* .footer-navs a {
     text-decoration: none;
     color: var(--light-brown);
 }
@@ -134,7 +134,7 @@ header {
 .footer-navs a:hover {
     font-style: italic;
     color: var(--dark-green);
-}
+} */
 
 .copyright {
     color: var(--light-brown);
