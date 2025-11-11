@@ -1,6 +1,4 @@
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer>
       <div className="footer-name">
@@ -20,7 +18,7 @@ const Footer = () => {
           <a href="https://github.com/adityas0204" target="_blank">2. GitHub</a>
         </div>
       </div>
-      <div className="copyright">© {currentYear} Aditya Soni. All rights reserved</div>
+      <div className="copyright">blah blah copy rght</div>
     </footer>
   )
 }
