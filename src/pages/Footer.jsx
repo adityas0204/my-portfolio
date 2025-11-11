@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer-name">
-        <span>ADITYA </span> <span className="last">SONI</span>
+    <footer className="p-9 px-[4%] font-black bg-cream text-brownlight">
+      <div className="font-caesar font-black text-7xl mb-9">
+        <span className="text-browndark">ADITYA </span> <span className="italic">SONI</span>
       </div>
 
-      <div className="footer-navs">
+      <div className="flex text-lg gap-5">
         <div className="nav-container">
           <p>Navigate</p>
           <a href="#home-container">1. Home</a>
