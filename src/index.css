@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
     --dark-brown: #6C584C;
     --light-brown: #A98467;
@@ -69,11 +71,11 @@ header {
 .social-media-link-svg {
     width: 34px;
     height: 34px;
-    fill: var(--light-brown);
+    fill: var(--dark-brown);
 }
 
 .social-media-link-svg:hover {
-    fill: var(--dark-brown)
+    fill: var(--light-brown)
 }
 
 footer {
