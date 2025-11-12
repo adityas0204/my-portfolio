@@ -1,5 +1,6 @@
 const Footer = () => {
   const linkClass = "text-lightbrown hover:text-greendark hover:italic transition-colors";
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="p-9 px-[4%] font-black bg-cream text-brownlight">
@@ -8,7 +9,7 @@ const Footer = () => {
         <span className="italic">SONI</span>
       </div>
 
-      <div className="flex text-lg gap-5">
+      <div className="flex text-lg gap-12 md:gap-32">
         <div className="flex flex-col gap-2">
           <p className="m-0 italic text-browndark">Navigate</p>
           <a href="#home" className={linkClass}>1. Home</a>
@@ -23,7 +24,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-9 text-sm">blah blah copy rght</div>
+      <div className="mt-9 text-sm">© {currentYear} Aditya Soni. All rights reserved</div>
     </footer>
   )
 }
