@@ -2,8 +2,8 @@ import ProjectInfo from "./ProjectInfo"
 
 const Projects = () => {
   return (
-    <section id="projects"> 
-      <h2>Projects</h2>
+    <section id="projects" className="min-h-screen flex flex-col items-center px-4 py-16 md:py-40 bg-white font-black"> 
+      <h2 className="text-7xl mb-4 text-greendark">Projects</h2>
       <div className="timeline">
         <div className="timeline-line"></div>        
         <ProjectInfo
