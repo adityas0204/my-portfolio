@@ -10,7 +10,7 @@ const Projects = () => {
           title={"Alberta Heart Chatbot"}
           description={"Developed the Alberta Heart Chatbot, a RAG-based assistant that enables semantic search across an internal document corpus using the OpenAI API. I integrated language models with managed vector stores to facilitate context-aware information retrieval, moving beyond simple keyword matching. My work centered on optimizing retrieval precision by evaluating the performance and cost-efficiency tradeoffs."}
           technologies={"JavaScript, Node.js, Discord.js, OpenAI API"}
-          url={"https://github.com/Cococola315/alberta_heart_bot.git"}
+          url={"https://github.com/Cococola315/alberta_heart_bot"}
           link={"GitHub"}
         />
         <ProjectInfo
