@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Mozilla+Text:wght@200..700&display=swap");
 @import "tailwindcss";
+/* https://coolors.co/palette/f0ead2-dde5b6-adc178-a98467-6c584c */
 
 @theme {
     --font-caesar: "Caesar Dressing", sans-serif;

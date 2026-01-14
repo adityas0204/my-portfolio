@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-9 text-sm">© {currentYear} Aditya Soni. All rights reserved</div>
+      <div className="mt-9 text-sm">© {currentYear} Aditya Soni. All Rights Reserved.</div>
     </footer>
   )
 }
