@@ -5,7 +5,9 @@ const ProjectTechnologies = ({tech}) => {
                 (t) => {
                     console.log(t) 
                     return (
-                        <span className="px-2 py-1 m-1 rounded-2xl bg-brownlight">{t}</span>
+                        <span className="px-2 py-1 m-1 rounded-2xl bg-brownlight">
+                            {t}
+                        </span>
                 )})}
         </div>
     )
