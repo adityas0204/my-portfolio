@@ -2,11 +2,33 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-const url = process.env.MONGODB_URI
-
 const pingSchema = new mongoose.Schema({
-  date: Date,
-  ip: String,
+  hashedIp: String,
+  device: String,
+  timings: {
+    start: {
+      type: Date,
+      default: Date.now
+    },
+    lastPing: {
+      type: Date,
+      default: Date.now
+    },
+    durationSec: {
+      type: Number,
+      default: 0
+    }
+  },
+  interactions: {
+    hoverCount: {
+      type: Number,
+      default: 0
+    },
+    scrollMilestones: { 
+      type: [String],
+      default: []
+    }
+  }
 })
 
 pingSchema.set('toJSON', {

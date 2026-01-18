@@ -1,13 +1,15 @@
 import picture from '../assets/aditya_soni.png'
+import useScrollTracking from '../util/scrollTracking'
 
 const About = () => {
-    const textClass = 'md:text-2xl text-lg font-medium mb-2'
+  const scrollRef = useScrollTracking('ABOUT')
+  const textClass = 'md:text-2xl text-lg font-medium mb-2'
 
   return (
-    <div id="about" className='md:h-screen flex flex-col justify-center items-center bg-bone py-12 md:py-0'>
+    <div id="about" ref={scrollRef} className='md:h-screen flex flex-col justify-center items-center bg-bone py-12 md:py-0'>
       <div className='flex flex-col md:flex-row justify-center items-center gap-6 md:gap-[2%] p-2'>
-        <img src={picture} className='w-80 md:w-[400px] rounded-2xl'/> 
-        <div className='flex flex-col w-80 md:w-[400px] text-left'>
+        <img src={picture} className='w-80 md:w-100 rounded-2xl'/> 
+        <div className='flex flex-col w-80 md:w-100 text-left'>
           <h2 className='md:text-2xl text-xl font-semibold mb-2 italic'>About Me</h2>
           <p className={textClass}>
             Hi, my name is Aditya Soni!

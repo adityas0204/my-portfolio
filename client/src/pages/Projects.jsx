@@ -1,8 +1,10 @@
 import ProjectInfo from "./ProjectInfo"
+import useScrollTracking from '../util/scrollTracking'
 
 const Projects = () => {
+  const scrollRef = useScrollTracking('PROJECTS')
   return (
-    <section id="projects" className="min-h-screen flex flex-col items-center px-4 py-16 md:py-40 bg-white font-black"> 
+    <section id="projects" ref={scrollRef} className="min-h-screen flex flex-col items-center px-4 py-16 md:py-40 bg-white font-black"> 
       <h2 className="text-7xl mb-4 text-greendark">Projects</h2>
       <div className="timeline">
         <div className="timeline-line"></div>        

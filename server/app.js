@@ -6,7 +6,7 @@ require('dotenv').config()
 const app = express()
 const url = process.env.MONGODB_URI
 
-console.log(`connecting to ${url}`);
+console.log(`connecting to MongoDB`);
 (async () => {
   try {
     await mongoose.connect(url)

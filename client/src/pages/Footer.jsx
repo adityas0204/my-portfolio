@@ -1,9 +1,12 @@
+import useScrollTracking from '../util/scrollTracking'
+
 const Footer = () => {
+  const scrollRef = useScrollTracking('FOOTER')
   const linkClass = "text-lightbrown hover:text-greendark hover:italic transition-colors";
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="p-9 px-[4%] font-black bg-cream text-brownlight">
+    <footer ref={scrollRef} className="p-9 px-[4%] font-black bg-cream text-brownlight">
       <div className="font-caesar font-black text-7xl mb-9">
         <span className="text-browndark">ADITYA </span>
         <span className="italic">SONI</span>
