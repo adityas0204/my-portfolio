@@ -1,6 +1,0 @@
-POST http://localhost:3001/api/pings
-Content-Type: application/json
-
-{
-    "message": "do u see this?"
-}
