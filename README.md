@@ -87,5 +87,18 @@ New schema:
 
 I started coding this, adding the route for `PUT` and then I saw a method called `findByIdAndUpdate`. It's an atomic method where I can use MongoDB methods like `$inc` and `$set`. The idea now is to send all non atomic data in the first `POST`  request thats made, and then send `PUT` methods with codes like `HOVER` or `PING` in the request body to indicate that we need to increment the `hoverCount`. This will also eliminate race conditions as I won't go back and forth between MongoDB two times. 
 
-I got the hover pings to work. I had to use refs so that the values wouldn't be lost over React renders. I also did not want to send an update every time the user hovers so I used two refs; one ref to start a timer, and another to act as a buffer and count the number of hovers performed in that time. 
+I got the hover pings to work. I had to use `ref`s so that the values wouldn't be lost over React renders. I also did not want to send an update every time the user hovers so I used two `ref`s; one `ref` to start a timer, and another to act as a buffer and count the number of hovers performed in that time. 
 
+For the scroll tracking, I used a custom hook alongside an `IntersectionObserver`. This is a really cool built in API that lets me easily check if my target, as in the component I want to check, is present on the screen. I used a `ref` to pass the DOM element that I wanted to target into the hook by attaching it to the div:
+
+```js
+<footer ref={scrollRef} ...>
+    ...
+</footer>
+```
+
+I attached the hook onto every component I wanted to track.
+
+Then, I ran into an issue. If I launched the site, then the `createPing` wouldn't be processed in time for the home screen to send an `updateLog` for the screen tracking. To manage this race condition I set the promise inside of `createPing` to a variable declared outside of the function. `updateLog` could then check if that promise existed, and if it did then it would `await` it, pausing the execution of `updateLog` until the promise had beed fulfilled. This can be seen in `/client/src/services/ping`.
+
+Setting up the `HEARTBEAT` pings was very easy. I used a `setInterval` callback function that would simply call `updateLog` every 30 seconds. However, I ran into a weird Mongoose problem where my query to update `timings.durationSec` in my backend wasn't being allowed due to Mongoose getting confused. I found a Stack Overflow thread that said the solution was to access MongoDB's collections through the Mongoose objects to bypass Mongoose's security checks. That ended up being the fix.

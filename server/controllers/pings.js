@@ -1,4 +1,5 @@
 const crypto = require('crypto')
+const mongoose = require('mongoose')
 const pingsRouter = require('express').Router()
 const Ping = require('../models/ping')
 
@@ -9,7 +10,6 @@ pingsRouter.get('/', async (req, res) => {
 
 pingsRouter.post('/', async (req, res) => {
   const body = req.body
-  console.log('recieved a ping')
   
   const ping = new Ping({
     hashedIp: crypto.createHash('sha256').update(req.ip).digest('hex'),
@@ -24,19 +24,24 @@ pingsRouter.patch('/:id', async (req, res) => {
   const type = req.body.type
 
   if (type === "HEARTBEAT") {
-      await Ping.findByIdAndUpdate(req.params.id, {
-        $set: { 
-          "timings.lastPing": new Date(),
-          "timings.durationSec": { // get the new date (basically the last ping), and then subtract it and divide it to go from milliseconds to seconds
-            $divide: [
-              { $subtract: [new Date(), "$timings.start"] },
-              1000
-            ]
+      await Ping.collection.updateOne(
+        { _id: new mongoose.Types.ObjectId(req.params.id) },
+        [
+          {
+            $set: {
+              "timings.lastPing": new Date(),
+              "timings.durationSec": {
+                $divide: [
+                  { $subtract: [new Date(), "$timings.start"] },
+                  1000
+                ]
+              }
+            }
           }
-        }
-      })
+        ]
+      )
 
-      return res.status(200).end()
+    return res.status(200).end()
   }
   
   if (type === "HOVER") {
