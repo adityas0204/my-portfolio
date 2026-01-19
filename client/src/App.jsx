@@ -13,6 +13,12 @@ const App = () => {
       await pingService.createPing()
     }
     pingServer()
+
+    const updateLogInterval = setInterval(async () => {
+      await pingService.updateLog({
+        type: "HEARTBEAT",
+      })
+    }, 30000) // runs every 30 seconds
   }, [])
 
   return (
