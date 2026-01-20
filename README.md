@@ -102,3 +102,5 @@ I attached the hook onto every component I wanted to track.
 Then, I ran into an issue. If I launched the site, then the `createPing` wouldn't be processed in time for the home screen to send an `updateLog` for the screen tracking. To manage this race condition I set the promise inside of `createPing` to a variable declared outside of the function. `updateLog` could then check if that promise existed, and if it did then it would `await` it, pausing the execution of `updateLog` until the promise had beed fulfilled. This can be seen in `/client/src/services/ping`.
 
 Setting up the `HEARTBEAT` pings was very easy. I used a `setInterval` callback function that would simply call `updateLog` every 30 seconds. However, I ran into a weird Mongoose problem where my query to update `timings.durationSec` in my backend wasn't being allowed due to Mongoose getting confused. I found a Stack Overflow thread that said the solution was to access MongoDB's collections through the Mongoose objects to bypass Mongoose's security checks. That ended up being the fix.
+
+## Deployment Documentation
