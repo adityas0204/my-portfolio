@@ -16,7 +16,7 @@ console.log(`connecting to MongoDB`);
   }
 })()
 
-// wapp.use(express.static('dist'))
+app.use(express.static('dist'))
 app.use(express.json())
 
 app.use('/api/pings', pingsRouter)
