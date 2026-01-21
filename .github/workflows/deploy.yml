@@ -16,12 +16,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Use the version you have on your EC2
+          node-version: '24' # Use the version you have on your EC2
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Install & Build
         # This builds your Vite project on GitHub's hardware
         run: |
+          cd client
           npm ci 
           npm run build
 
