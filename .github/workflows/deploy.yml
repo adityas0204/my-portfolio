@@ -1,0 +1,48 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main  # This triggers when you push directly OR when a PR is merged into main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use the version you have on your EC2
+          cache: 'npm'
+
+      - name: Install & Build
+        # This builds your Vite project on GitHub's hardware
+        run: |
+          npm ci 
+          npm run build
+
+      - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ubuntu
+          SOURCE: "dist/" 
+          TARGET: "/home/ubuntu/my-portfolio/server/"
+          ARGS: "-rlgoDzvc -i --delete"
+
+      - name: Restart Backend & Clean Cache
+        # This tells your server to refresh the app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/my-portfolio/server
+            pm2 restart all
+            sudo systemctl reload nginx

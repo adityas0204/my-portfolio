@@ -104,3 +104,5 @@ Then, I ran into an issue. If I launched the site, then the `createPing` wouldn'
 Setting up the `HEARTBEAT` pings was very easy. I used a `setInterval` callback function that would simply call `updateLog` every 30 seconds. However, I ran into a weird Mongoose problem where my query to update `timings.durationSec` in my backend wasn't being allowed due to Mongoose getting confused. I found a Stack Overflow thread that said the solution was to access MongoDB's collections through the Mongoose objects to bypass Mongoose's security checks. That ended up being the fix.
 
 ## Deployment Documentation
+
+After doing lots of research, I have decided to use AWS EC2.
