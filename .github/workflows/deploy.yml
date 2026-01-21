@@ -33,9 +33,9 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ubuntu
-          SOURCE: "client/dist/" 
+          SOURCE: "client/dist" 
           TARGET: "/home/ubuntu/my-portfolio/server/"
-          ARGS: "-rlgoDzvc -i --delete"
+          ARGS: "-rlgoDzvc -i"
 
       - name: Restart Backend & Clean Cache
         # This tells your server to refresh the app
