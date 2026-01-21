@@ -33,7 +33,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ubuntu
-          SOURCE: "dist/" 
+          SOURCE: "client/dist/" 
           TARGET: "/home/ubuntu/my-portfolio/server/"
           ARGS: "-rlgoDzvc -i --delete"
 
