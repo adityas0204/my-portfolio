@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-9 text-sm">© {currentYear} Aditya Soni. All Rights Reserved.</div>
+      <div className="mt-9 text-sm">© {currentYear} Aditya Soni. All Rights Reserved. OOOOOOH IS THE ACTION WORKING????</div>
     </footer>
   )
 }
