@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-mongoose.set('strictQuery', false)
+mongoose.set('strictQuery', false);
 
 const pingSchema = new mongoose.Schema({
   hashedIp: String,
@@ -29,14 +29,14 @@ const pingSchema = new mongoose.Schema({
       default: []
     }
   }
-})
+});
 
 pingSchema.set('toJSON', {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
   }
-})
+});
 
-module.exports = mongoose.model('Ping', pingSchema)
+module.exports = mongoose.model('Ping', pingSchema);
