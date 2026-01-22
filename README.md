@@ -105,4 +105,12 @@ Setting up the `HEARTBEAT` pings was very easy. I used a `setInterval` callback 
 
 ## Deployment Documentation
 
-After doing lots of research, I have decided to use AWS EC2.
+After doing lots of research, I have decided to use AWS EC2. It is the cheapest option in the long run, but it requires more setup and maintenance. I think this will be a great learning experience for me since I have always sed hosting solutions that manage everything for me.
+
+Firstly, I looked online for tutorials. I found [one video](https://www.youtube.com/watch?v=nQdyiK7-VlQ) and [one site](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-20-04). I used two sources to have a mix and followed both simultaneously to see how things are done differently. 
+
+Then, I began the EC2 setup. First, I started an EC2 instance with Ubuntu as the OS. I also downloaded a `.pem` file to ssh into the machine. I ssh'ed into the machine through my WSL terminal and first ran `upgrade` and `update` commands. To my knowledge, I will have to do this semi-frequently to make sure that I am up to date on security updates. 
+
+I then installed `Node` since my app was a Node app. I connected the machine to my github through the ssh key, and pulled my project into the machine. Once my repo was on the machine, I realized that I couldn't just run my app since I hadn't setup the `NODE_ENV` variables in `package.json`. I installed `cross-env` so that it wouldn't be an issue on Windows vs. Linux and started writing my deploy and start commands. My deploy command initially was made for Windows and wouldn't work on Linux machines (due to how I was moving `dist` folder). To fix this I installed another module `shx` that let the command work for Windows and Linux. I deployed the app, and went to the public IP of my machine, but nothing was shown there. The tutorial said to open the port through AWS that my app was running on, and then when I went to that port I could see my app running. No data was being logged in MongoDB since my application was not connecting to Atlas. To solve the problem I authorized connections from anywhere for Atlas. 
+
+This was all very exciting but there was still much work to go. Next, I install PM2. This software makes sure that my application is constantly running on the machine, even if I close the terminal or my connection. It was very easy setting up PM2.
