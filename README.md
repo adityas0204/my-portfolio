@@ -114,3 +114,19 @@ Then, I began the EC2 setup. First, I started an EC2 instance with Ubuntu as the
 I then installed `Node` since my app was a Node app. I connected the machine to my github through the ssh key, and pulled my project into the machine. Once my repo was on the machine, I realized that I couldn't just run my app since I hadn't setup the `NODE_ENV` variables in `package.json`. I installed `cross-env` so that it wouldn't be an issue on Windows vs. Linux and started writing my deploy and start commands. My deploy command initially was made for Windows and wouldn't work on Linux machines (due to how I was moving `dist` folder). To fix this I installed another module `shx` that let the command work for Windows and Linux. I deployed the app, and went to the public IP of my machine, but nothing was shown there. The tutorial said to open the port through AWS that my app was running on, and then when I went to that port I could see my app running. No data was being logged in MongoDB since my application was not connecting to Atlas. To solve the problem I authorized connections from anywhere for Atlas. 
 
 This was all very exciting but there was still much work to go. Next, I install PM2. This software makes sure that my application is constantly running on the machine, even if I close the terminal or my connection. It was very easy setting up PM2.
+
+Next, it was time to setup Nginx. This is a webserver that works by creating a reverse proxy between port 80 and port 3001, where my server is running. The setup was pretty simple, I had to edit `nginx/sites-available/my-portfolio`. I added my server name, and some proxy setup. 
+
+Then, I changed my DNS IP on porkbun (my DNS registrar) to my EC2 instance public IP. So now, my `http` site works, but to make my `https` site to work I needed to add certificates. 
+
+For certificates, I used Certbot. Initially, I tried to use `soniaditya.com` and `www.soniaditya.com`, but it couldnt find my site on the DNS despite me having changed it in my DNS registrar. I did some research and determiend that the problem was due to DNS propogation, which could take upto 48H. 
+
+I checked back the next day, and my DNS was working. Certbot worked for `soniaditya.com`, but not for `www.soniaditya.com`. This was due to me not putting the www site as a canonical name, and after doing that all routing would go to `www.soniaditya`. With the SSL certificates working now, my site would appear as `https`.
+
+Finally, I installed and setup Brotli for compression for bettwe compression.
+
+The site is up and running now, but there is still much work to do on the instance such as load management and monitoring. But all of that is for later. 
+
+## Linting
+
+I want to stanardize some of my coding norms through linting. 
