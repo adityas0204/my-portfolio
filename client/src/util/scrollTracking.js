@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react"
-import pingService from '../services/ping'
+import { useEffect, useRef } from 'react';
+import pingService from '../services/ping';
 
 const useScrollTracking = (componentName) => {
-  const elementRef = useRef(null)
+  const elementRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -10,25 +10,25 @@ const useScrollTracking = (componentName) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             pingService.updateLog({
-              type: "MILESTONE",
+              type: 'MILESTONE',
               milestone: componentName
-            })
+            });
 
-            observer.unobserve(entry.target)
+            observer.unobserve(entry.target);
           }
-        })
+        });
       },
       { threshold: 0.5 }
-    )
+    );
 
     if (elementRef.current) {
-      observer.observe(elementRef.current)
+      observer.observe(elementRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [componentName])
+    return () => observer.disconnect();
+  }, [componentName]);
 
-  return elementRef
-}
+  return elementRef;
+};
 
-export default useScrollTracking
+export default useScrollTracking;

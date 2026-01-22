@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const MobileMenu = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const MobileMenu = () => {
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         <svg className="w-6 h-6 text-browndark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
         </svg>
       </button>
 
@@ -58,7 +58,7 @@ const MobileMenu = () => {
         </div>
       )}
     </> 
-  )
-}
+  );
+};
 
-export default MobileMenu
+export default MobileMenu;

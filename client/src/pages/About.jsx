@@ -1,9 +1,9 @@
-import picture from '../assets/aditya_soni.png'
-import useScrollTracking from '../util/scrollTracking'
+import picture from '../assets/aditya_soni.png';
+import useScrollTracking from '../util/scrollTracking';
 
 const About = () => {
-  const scrollRef = useScrollTracking('ABOUT')
-  const textClass = 'md:text-2xl text-lg font-medium mb-2'
+  const scrollRef = useScrollTracking('ABOUT');
+  const textClass = 'md:text-2xl text-lg font-medium mb-2';
 
   return (
     <div id="about" ref={scrollRef} className='md:h-screen flex flex-col justify-center items-center bg-bone py-12 md:py-0'>
@@ -24,7 +24,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -1,4 +1,4 @@
-import ProjectTechnologies from './ProjectTechnologies'
+import ProjectTechnologies from './ProjectTechnologies';
 
 const ProjectInfo = ({ title, description, technologies, url, link }) => {
   return (
@@ -13,7 +13,7 @@ const ProjectInfo = ({ title, description, technologies, url, link }) => {
         </a>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ProjectInfo
+export default ProjectInfo;

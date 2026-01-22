@@ -1,9 +1,9 @@
-import useScrollTracking from '../util/scrollTracking'
+import useScrollTracking from '../util/scrollTracking';
 
 const Footer = () => {
-  const scrollRef = useScrollTracking('FOOTER')
-  const linkClass = "text-lightbrown hover:text-greendark hover:italic transition-colors";
-  const currentYear = new Date().getFullYear()
+  const scrollRef = useScrollTracking('FOOTER');
+  const linkClass = 'text-lightbrown hover:text-greendark hover:italic transition-colors';
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer ref={scrollRef} className="p-9 px-[4%] font-black bg-cream text-brownlight">
@@ -29,7 +29,7 @@ const Footer = () => {
 
       <div className="mt-9 text-sm">© {currentYear} Aditya Soni. All Rights Reserved.</div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer 
+export default Footer; 

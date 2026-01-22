@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
-import MobileMenu from './MobileMenu'
+import { useState, useEffect } from 'react';
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
-  const [showHeader, setShowHeader] = useState(false)
+  const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +42,7 @@ const Header = () => {
       <MobileMenu />
 
     </header>
-  )
-}
+  );
+};
 
 export default Header;
