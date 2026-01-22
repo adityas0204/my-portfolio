@@ -14,7 +14,7 @@ const App = () => {
     }
     pingServer()
 
-    const updateLogInterval = setInterval(async () => {
+    setInterval(async () => {
       await pingService.updateLog({
         type: "HEARTBEAT",
       })

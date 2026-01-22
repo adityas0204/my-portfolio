@@ -20,7 +20,7 @@ const updateLog = async (data) => {
     return 
   }
   
-  const res = await axios.patch(`${baseUrl}/${logId}`, data)
+  await axios.patch(`${baseUrl}/${logId}`, data)
 }
 
 export default { createPing, updateLog }

@@ -13,7 +13,7 @@ const About = () => {
           <h2 className='md:text-2xl text-xl font-semibold mb-2 italic'>About Me</h2>
           <p className={textClass}>
             Hi, my name is Aditya Soni!
-            </p>
+          </p>
           <p className={textClass}>
             I'm studying <b className='text-brownlight'>Computer Science</b> at the University of Alberta, and I'm interested in <b className='text-brownlight'>Software Development</b>.
           </p> 

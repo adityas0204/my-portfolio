@@ -19,8 +19,8 @@ const Home = () => {
           amount: hoverBufferRef.current 
         })
 
-      hoverRef.current = false
-      hoverBufferRef.current = 0
+        hoverRef.current = false
+        hoverBufferRef.current = 0
       }, 3000)
     }
   }
