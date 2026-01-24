@@ -129,4 +129,28 @@ The site is up and running now, but there is still much work to do on the instan
 
 ## Linting
 
-I want to stanardize some of my coding norms through linting. 
+I want to stanardize some of my coding norms through linting. One of my folders is CommonJS and the other is Esmodules, so they both have their own `eslint.config` files. I looked at the ESLint documentation and picked out some basic rules:
+
+```js
+rules: {
+  'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+  'indent': ['error', 2],
+  'camelcase': 'warn',
+  'eqeqeq': 'warn',
+  'quotes': ['error', 'single'],
+  'semi': ['error', 'always'],
+}
+```
+
+As time goes on, I think I will find and add more rules but for now these are good enough. I added two scripts, one for basic linting and another for fixing the problems:
+
+```json
+"lint": "eslint .",
+"lint:fix": "eslint --ext js,jsx --fix"
+```
+
+## Miscellanous Issues
+
+An issue I have noticed is that when I start my backend in dev mode, it connects to my production database. Furthermore, sometimes I don't want to send pings altogether. I can make a test database, and add the key to my `.env`. Then I can alternate the use of the keys in my `util` file. 
+
+Actually, I don't wanna make a separate DB on Atlas, and if I use the same one then I can't make a another free cluster. To resolve this issue I'll just make a new collection in the same cluster. I don't expect a lot of traffic anyways, so this should be fine.

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { MONGODB_COLLECTION } = require('../util/config')
 
 mongoose.set('strictQuery', false);
 
@@ -39,4 +40,4 @@ pingSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model('Ping', pingSchema);
+module.exports = mongoose.model(MONGODB_COLLECTION, pingSchema);
