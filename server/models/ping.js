@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { MONGODB_COLLECTION } = require('../util/config')
+const { MONGODB_COLLECTION } = require('../util/config');
 
 mongoose.set('strictQuery', false);
 

@@ -14,11 +14,15 @@ const App = () => {
     };
     pingServer();
 
-    setInterval(async () => {
+    // sends a hearbeat ping every 30 seconds
+    const heartBeatPings = setInterval(async () => {
       await pingService.updateLog({
         type: 'HEARTBEAT',
       });
-    }, 30000); // runs every 30 seconds
+    }, 30000); 
+
+    // stops the heartbeat ping after 5 minutes
+    setTimeout(() => clearInterval(heartBeatPings), 300000);
   }, []);
 
   return (

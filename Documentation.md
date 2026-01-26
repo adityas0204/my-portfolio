@@ -128,3 +128,11 @@ As time goes on, I think I will find and add more rules but for now these are go
 An issue I have noticed is that when I start my backend in dev mode, it connects to my production database. Furthermore, sometimes I don't want to send pings altogether. I can make a test database, and add the key to my `.env`. Then I can alternate the use of the keys in my `util` file. 
 
 Actually, I don't wanna make a separate DB on Atlas, and if I use the same one then I can't make a another free cluster. To resolve this issue I'll just make a new collection in the same cluster. I don't expect a lot of traffic anyways, so this should be fine.
+
+Sometimes I don't want to be testing out pings, or actually maybe I can make the pings be a longer time span, such as 5 minutes or something just to make sure theyre even working. 
+
+I think I can keep sending pings from my frontend. I'll make it so that there is some middleware that can intercept the pings if I start the server in some mode.
+
+Implemented the middleware. Super simple design, just send a response to the client with a message, and prints a log in the console.
+
+Next, I want to prevent too many pings being sent from the same client. I think if they've been on my site for atleast 5 minutes then mission accomplished and I can stop the timed pings. Its possible that they're just idling, but when I do data analysis later we can look into that. For this, I think I can use a `setTimeout` that calls a `clearInterval` on the running `heartbeat` interval.

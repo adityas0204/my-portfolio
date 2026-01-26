@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const pingsRouter = require('./controllers/pings');
+const { blockPings } = require('./util/middleware');
 require('dotenv').config();
 
 const app = express();
@@ -17,6 +18,7 @@ console.log('connecting to MongoDB');
 })();
 
 app.use(express.static('dist'));
+app.use(blockPings);
 app.use(express.json());
 
 app.use('/api/pings', pingsRouter);
