@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "deploy": "cd ../client && npm run build && shx rm -rf ../server/dist && shx mv dist ../server/ && cd ../server && node index.js",
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "cross-env NODE_ENV=production DISABLE_PINGS=false node index.js",
     "dev": "cross-env NODE_ENV=development DISABLE_PINGS=true node --watch index.js",
     "dev:pings": "cross-env NODE_ENV=development node --watch index.js",
     "test": "cross-env NODE_ENV=test node --test",
