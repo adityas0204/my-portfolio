@@ -1,42 +1,18 @@
-import Header from './pages/Header';
-import Home from './pages/Home';
-import About from './pages/About';
-import Experience from './pages/Experience';
-import Projects from './pages/Projects';
-import Footer from './pages/Footer';
-import { useEffect } from 'react';
-import pingService from './services/ping';
+import MainApp from './pages/MainApp'
+import Stats from './pages/Stats'
+import { Route, Routes } from "react-router";
 
 const App = () => {
-  useEffect(() => {
-    const pingServer = async () => {
-      await pingService.createPing();
-    };
-    pingServer();
 
-    // sends a hearbeat ping every 30 seconds
-    const heartBeatPings = setInterval(async () => {
-      await pingService.updateLog({
-        type: 'HEARTBEAT',
-      });
-    }, 30000); 
+	return (
+		<Routes>
 
-    // stops the heartbeat ping after 5 minutes
-    setTimeout(() => clearInterval(heartBeatPings), 300000);
-  }, []);
+      <Route path='/' element={ <MainApp /> } />
 
-  return (
-    <div>
-      <Header/>
-      <main> 
-        <Home/>
-        <About/>
-        { /* <Experience/> */}
-        <Projects/>
-      </main>
-      <Footer/>
-    </div>
-  );
+      <Route path='/stats' element={ <Stats/ > } />
+
+    </Routes>
+	);
 };
 
 export default App;

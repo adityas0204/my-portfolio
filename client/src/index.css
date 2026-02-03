@@ -32,21 +32,6 @@ html, body {
     scroll-padding-top: 60px
 }
 
-header {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4%;
-    height: 60px;
-    background-color: var(--light-green);
-    transition: opacity 0.3s ease;
-    z-index: 100;
-}
-
 .header-hidden {
   opacity: 0;
   pointer-events: none;
