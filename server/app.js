@@ -5,6 +5,7 @@ const { blockPings } = require('./util/middleware');
 require('dotenv').config();
 
 const app = express();
+app.set('trust proxy', true);
 const url = process.env.MONGODB_URI;
 
 console.log('connecting to MongoDB');

@@ -13,7 +13,7 @@ const SimpleHeader = () => {
       <div className="flex-1"></div>
 
     </header>
-  )
-}
+  );
+};
 
-export default SimpleHeader
+export default SimpleHeader;

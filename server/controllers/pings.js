@@ -2,26 +2,42 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 const pingsRouter = require('express').Router();
 const Ping = require('../models/ping');
+const ipQuery = require('./queries/ipQuery');
 
 pingsRouter.get('/', async (req, res) => {
-  const pings = await Ping.find({});
-  res.json(pings);
+  const { type } = req.query;
+  let stats = null;
+
+  if (type === 'ip') {
+    stats = await ipQuery();
+  }
+
+  res.json(stats);
 });
 
 pingsRouter.post('/', async (req, res) => {
-  const body = req.body;
+  const { body } = req;
   
   const ping = new Ping({
     hashedIp: crypto.createHash('sha256').update(req.ip).digest('hex'),
-    device: body.device
+    device: body.device || 'null'
   });
 
-  const savedPing = await ping.save();
-  res.status(201).json(savedPing);
+  try {
+    const savedPing = await ping.save();
+    res.status(201).json(savedPing);
+  } catch {
+    res.status(500).json({ error: 'Could not make Ping in MongoDB' });
+  }
 });
 
 pingsRouter.patch('/:id', async (req, res) => {
-  const type = req.body.type;
+  const { type } = req.body;
+
+  const validTypes = ['HEARTBEAT', 'HOVER', 'MILESTONE'];
+  if (!type || !validTypes.includes(type)) {
+    return res.status(400).json({ error: 'Invalid or missing interaction type' });
+  }
 
   if (type === 'HEARTBEAT') {
     await Ping.collection.updateOne(

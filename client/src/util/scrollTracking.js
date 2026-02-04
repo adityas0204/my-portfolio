@@ -9,16 +9,16 @@ const useScrollTracking = (componentName) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            pingService.updateLog({
+            pingService.updatePing({
               type: 'MILESTONE',
-              milestone: componentName
+              milestone: componentName,
             });
 
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (elementRef.current) {

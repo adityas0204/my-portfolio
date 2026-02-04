@@ -11,16 +11,29 @@ const createPing = async () => {
   logId = res.data.id;
 };
 
-const updateLog = async (data) => {
+const updatePing = async (data) => {
   if (!logId && initialPromise) {
     await initialPromise;
   }
 
   if (!logId) {
-    return; 
+    return;
   }
-  
+
   await axios.patch(`${baseUrl}/${logId}`, data);
 };
 
-export default { createPing, updateLog };
+const getPings = async (type = null) => {
+  try {
+    const res = await axios.get(baseUrl, {
+      params: { 
+        type
+      }
+    });
+    return { data: res.data, error: null };
+  } catch (error) {
+    return { data: [], error: error || 'Server unreachable' };
+  }
+};
+
+export default { createPing, updatePing, getPings };
