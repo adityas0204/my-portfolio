@@ -20,7 +20,7 @@ const RangeForm = ({ handleRangeChange, items, disabled }) => {
         ))
       }
     </form>
-  )
-}
+  );
+};
 
 export default RangeForm;

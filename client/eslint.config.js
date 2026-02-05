@@ -24,7 +24,6 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      'no-console': 'warn',
       'indent': ['error', 2],
       'camelcase': 'warn',
       'eqeqeq': 'warn',

@@ -3,13 +3,21 @@ const mongoose = require('mongoose');
 const pingsRouter = require('express').Router();
 const Ping = require('../models/ping');
 const ipQuery = require('./queries/ipQuery');
+const scrollQuery = require('./queries/scrollQuery');
+const deviceQuery = require('./queries/deviceQuery');
 
 pingsRouter.get('/', async (req, res) => {
-  const { type, range, } = req.query;
+  const query = req.query;
   let stats = null;
 
-  if (type === 'ip') {
-    stats = await ipQuery(range);
+  if (query.type === 'ip') {
+    stats = await ipQuery(query.range, query.unique === 'true');
+  } 
+  else if (query.type === 'scroll') {
+    stats = await scrollQuery();
+  }
+  else if (query.type === 'device') {
+    stats = await deviceQuery();
   }
 
   res.json(stats);
