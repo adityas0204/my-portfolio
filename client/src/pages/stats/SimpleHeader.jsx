@@ -1,6 +1,6 @@
 const SimpleHeader = () => {
   return (
-    <header className="flex items-center h-15 px-4 md:px-12 py-4 relative font-caesar font-black text-xl md:text-base bg-cream">
+    <header className="flex items-center h-15 px-4 md:px-12 py-4 relative font-caesar font-black text-xl text-cream md:text-base bg-browndark">
       
       <div className="flex-1">
         ADITYA SONI

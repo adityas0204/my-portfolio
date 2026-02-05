@@ -1,5 +1,5 @@
 import MainApp from './pages/MainApp';
-import Stats from './pages/Stats';
+import Stats from './pages/stats/Stats';
 import { Route, Routes } from 'react-router';
 
 const App = () => {

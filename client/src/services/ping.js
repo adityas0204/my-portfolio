@@ -23,11 +23,12 @@ const updatePing = async (data) => {
   await axios.patch(`${baseUrl}/${logId}`, data);
 };
 
-const getPings = async (type = null) => {
+const getPings = async (type = null, range = null) => {
   try {
     const res = await axios.get(baseUrl, {
       params: { 
-        type
+        type,
+        range,
       }
     });
     return { data: res.data, error: null };

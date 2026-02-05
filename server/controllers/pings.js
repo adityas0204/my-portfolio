@@ -5,11 +5,11 @@ const Ping = require('../models/ping');
 const ipQuery = require('./queries/ipQuery');
 
 pingsRouter.get('/', async (req, res) => {
-  const { type } = req.query;
+  const { type, range, } = req.query;
   let stats = null;
 
   if (type === 'ip') {
-    stats = await ipQuery();
+    stats = await ipQuery(range);
   }
 
   res.json(stats);
