@@ -78,7 +78,7 @@ const VisitsChart = ({ unique }) => {
     labels: data.map(item => item.date),
     datasets: [
       {
-        label: unique ? 'Unique Visitors' : 'Daily Visits',
+        label: unique ? 'Unique Visitors' : (dateRange === '6' ? 'Monthly Visits' : 'Daily Visits'),
         data: data.map(item => item.count),
         backgroundColor: 'rgb(173, 193, 120)',
       }
