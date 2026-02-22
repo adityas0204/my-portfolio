@@ -5,6 +5,8 @@ const Ping = require('../models/ping');
 const ipQuery = require('./queries/ipQuery');
 const scrollQuery = require('./queries/scrollQuery');
 const deviceQuery = require('./queries/deviceQuery');
+const timeQuery = require('./queries/timeQuery');
+const hoverQuery = require('./queries/hoverQuery');
 
 pingsRouter.get('/', async (req, res) => {
   const query = req.query;
@@ -18,6 +20,12 @@ pingsRouter.get('/', async (req, res) => {
   }
   else if (query.type === 'device') {
     stats = await deviceQuery();
+  } 
+  else if (query.type === 'time') {
+    stats = await timeQuery();
+  }
+  else if (query.type === 'hover') {
+    stats = await hoverQuery();
   }
 
   res.json(stats);

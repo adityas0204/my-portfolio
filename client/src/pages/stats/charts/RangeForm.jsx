@@ -1,6 +1,6 @@
 const RangeForm = ({ handleRangeChange, items, disabled }) => {
   return (
-    <form className={`p-1.5 w-fit border-greendark rounded-3xl inline-flex items-center gap-1.5 font-black bg-greenlight transition-opacity duration-200 ${disabled && 'opacity-60'}`} >
+    <form className={`p-1.5 w-fit text-sm text-center md:text-base border-greendark rounded-3xl inline-flex items-center gap-1.5 font-black bg-greenlight transition-opacity duration-200 ${disabled && 'opacity-60'}`} >
       {
         items.map((item, index) => (
           <label key={index} className={`transition-opacity duration-200 ${disabled ? 'pointer-events-none' : 'cursor-pointer'} flex items-center`} >

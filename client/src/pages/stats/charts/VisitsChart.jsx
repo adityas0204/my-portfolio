@@ -89,10 +89,14 @@ const VisitsChart = ({ unique }) => {
     <>
       {
         <div className='flex flex-col items-center gap-4 p-4 rounded-4xl bg-bone'>
-          <div className={`w-full transition-opacity duration-200 ${loading ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
-            <Bar options={options} data={chartData} />
+          <div className={`w-full overflow-x-auto transition-opacity duration-200 ${loading ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
+            <div className="h-[300px] min-w-[600px] md:h-auto md:min-w-full">
+              <Bar options={options} data={chartData} />
+            </div>
           </div>
-          <RangeForm handleRangeChange={handleRangeChange} items={filterItems} disabled={loading} />
+          <div className="w-full flex justify-center mt-2">
+            <RangeForm handleRangeChange={handleRangeChange} items={filterItems} disabled={loading} />
+          </div>
         </div>
       }
     </>

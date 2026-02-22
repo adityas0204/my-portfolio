@@ -285,3 +285,17 @@ html, body {
     margin-top: 48px;
 } */
 
+@keyframes scroller {
+    0% { transform: translate(0);}
+    100% { transform: translate(-50%);}
+}
+
+.animate-scroller {
+    display: flex;
+    width: max-content;
+    animation: scroller 15s linear infinite;
+}
+
+.animate-scroller:hover {
+    animation-play-state: paused;
+}
