@@ -11,5 +11,7 @@ services:
 
   server:
     build: ./server
+    env_file:
+      - .env
     ports:
       - "3001:3001"
