@@ -7,7 +7,7 @@ services:
     depends_on:
       - server
     volumes:
-      - ~/certs:/etc/nginx/ssl:ro
+      - /home/adi/portfolio/certs:/etc/nginx/ssl:ro
 
   server:
     build: ./server
