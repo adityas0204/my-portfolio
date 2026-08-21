@@ -1,4 +1,4 @@
-import picture from '../assets/aditya_soni.png';
+import picture from '../assets/aditya_soni.jpeg';
 import useScrollTracking from '../util/scrollTracking';
 
 const About = () => {
@@ -6,7 +6,7 @@ const About = () => {
   const textClass = 'md:text-2xl text-lg font-medium mb-2';
 
   return (
-    <div
+    <section
       id="about"
       ref={scrollRef}
       className="md:h-screen flex flex-col justify-center items-center bg-bone py-12 md:py-0"
@@ -30,12 +30,12 @@ const About = () => {
 						friends, spending time with my{' '}
             <i className="text-greendark font-bold">family</i> and playing{' '}
             <i className="text-greendark font-bold">games</i> (currently
-						playing GoW).
+						playing Cyberpunk 2077).
           </p>
           <p className={textClass}>Thanks for checking out my site!</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
