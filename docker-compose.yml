@@ -1,0 +1,17 @@
+services:
+  nginx:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - server
+    volumes:
+      - /home/adi/certs:/etc/nginx/ssl:ro
+
+  server:
+    build: ./server
+    env_file:
+      - ./server/.env
+    ports:
+      - "3001:3001"

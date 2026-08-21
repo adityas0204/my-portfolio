@@ -31,7 +31,7 @@ const MainApp = () => {
       <main>
         <Home />
         <About />
-        {/* <Experience/> */}
+        <Experience/>
         <Projects />
       </main>
       <Footer />
