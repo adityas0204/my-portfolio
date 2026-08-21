@@ -25,7 +25,7 @@ const Home = () => {
   };
 
   return (
-    <div
+    <section
       id="home"
       ref={scrollRef}
       className="h-screen flex justify-center items-center bg-greenlight"
@@ -71,7 +71,7 @@ const Home = () => {
           </div>
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
