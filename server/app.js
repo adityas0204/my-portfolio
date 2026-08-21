@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const pingsRouter = require('./controllers/pings');
@@ -23,6 +24,13 @@ app.use(blockPings);
 app.use(express.json());
 
 app.use('/api/pings', pingsRouter);
+
+app.use((req, res, next) => {
+  if (req.method !== 'GET' || req.path.startsWith('/api/')) {
+    return next();
+  }
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 module.exports = app;
 
